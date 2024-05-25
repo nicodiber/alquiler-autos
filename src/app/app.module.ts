@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule para configurar HttpClient
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; // Importa platformBrowserDynamic
 
+import { UsuarioService } from './usuario/usuario.service'; // Importa UsuarioService
+
 import { AppComponent } from './app.component'; // Importa AppComponent
 
 @NgModule({
@@ -11,7 +13,9 @@ import { AppComponent } from './app.component'; // Importa AppComponent
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UsuarioService // Asegúrate de usar el nombre correcto aquí
+  ],
   bootstrap: [] // Elimina AppComponent del arreglo bootstrap
 })
 export class AppModule {
