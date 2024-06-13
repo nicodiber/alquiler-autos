@@ -1,6 +1,16 @@
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { importProvidersFrom } from '@angular/core';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { UsuarioService } from './usuario/usuario.service';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom(BrowserModule, HttpClientModule),
+    UsuarioService
+  ]
+}).catch(err => console.error(err));
